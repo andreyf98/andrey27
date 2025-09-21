@@ -7,7 +7,7 @@
         body {
             background-image: url('https://crosti.ru/patterns/00/29/83/4a_preview_33770b95.jpg');
             background-repeat: repeat;
-            font-family: "Arial", "Comic Sans MS", cursive; /* Arial первый для читаемости */
+            font-family: "Arial", "Comic Sans MS", cursive;
             color: #00FF00;
             text-align: center;
             margin: 0;
@@ -63,7 +63,7 @@
         img {
             border: 3px solid #0000FF;
         }
-        /* Стили для новой галереи */
+        /* Стили для галереи */
         .gallery {
             background: linear-gradient(to bottom, #99FF99, #9999FF);
             margin: 20px 0;
@@ -72,20 +72,20 @@
         }
         .photo-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 фотки в ряд */
+            grid-template-columns: repeat(3, 1fr);
             gap: 10px;
             margin-top: 15px;
         }
-        .photo-placeholder {
+        .gallery-img {
             width: 100%;
             height: 150px;
-            background-color: #ddd;
+            object-fit: cover;
             border: 2px solid #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #333;
-            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        .gallery-img:hover {
+            transform: scale(1.05);
+            border: 2px solid #FF0000;
         }
     </style>
 </head>
@@ -95,12 +95,11 @@
     <marquee behavior="scroll" direction="right">>>> ШАШЛЫК <<< МУЗЫКА <<< БАННЫЙ ЧАН <<<</marquee>
 
     <img src="https://media.tenor.com/3QNUdJR3PUgAAAAi/twitch-youngmulti.gif" alt="Танцующий огонь" width="400">
-             <!-- БЛОК С МУЗЫКАЛЬНЫМ ПЛЕЕРОМ В СТИЛЕ 2000-Х -->
+    
     <div style="background-color: #0000FF; padding: 10px; border: 2px solid #00FF00; margin: 20px;">
         <b style="color: white; font-size: 20px;">♪ Зачетное музло для настроения... ♪</b>
         <br>
         <audio id="myAudio" loop controls style="width: 250px; margin: 10px;">
-            <!-- РАБОЧАЯ ТЕСТОВАЯ ССЫЛКА НА MP3 -->
             <source src="club.mp3" type="audio/mpeg">
             Ваш браузер не поддерживает HTML5 Audio! Какая жопа!
         </audio>
@@ -112,12 +111,11 @@
 
     <div class="container">
         <h1>★ УЛЬТРА МЕГА ТУСА ★</h1>
-        <!-- Исправление для всех -->
         <h2>Отмечаем мой День Рождения по-ПАЦАНСКИ! (девчонки, вас тожу зову!)</h2>
 
         <img src="https://media1.tenor.com/m/7KIjxu0Tbj0AAAAC/yes-applause-clap.gif" alt="Блестящее поздравление">
 
-        <p><big><b>Жду всех!:</b></big><br> <!-- Нейтральное обращение -->
+        <p><big><b>Жду всех!:</b></big><br>
         <font color="red" size="5">🗓️ Дата: 20 сентября 2025 года</font><br>
         <font color="blue" size="5">⏰ Время: от рассвета до заката (Палъюрич сказал может с 17:00, любимая жена просит не до утра, чтобы успеть убраться, потому что на следующий день занятия) </font><br>
         <font color="purple" size="5">🏠 Адрес: Вы знаете</font>
@@ -131,7 +129,6 @@
             <h3>🍖 ШАШЛЫК от настоящего ПРОФЕССИОНАЛА</h3>
             <img src="https://data3.proshkolu.ru/content/media/pic/std/3000000/2337000/2336588-5186f063e3dac2af.gif" alt="Жарящееся мясо" width="200">
             <p>Будем жарить мясо по секретному рецепту! Достанется всем, с лучком, лавашом и соусом тысяча островов!</p>
-            <!-- Добавлено про люля-кебаб -->
             <p><b>СУПЕР СЕКРЕТНОЕ БЛЮДО:</b> Впервые в жизни будем готовить ЛЮЛЯ-КЕБАБ! Получится или сгорит - узнаем вместе!</p>
         </div>
 
@@ -163,53 +160,52 @@
             <p>А потом сидим у костра, жжем дрова и слушаем Кровосток!</p>
         </div>
 
-         <div class="activity">
-            <h2>💋 ТАКЖЕ МЫ МОЖЕМ </h3>
+        <div class="activity">
+            <h2>💋 ТАКЖЕ МЫ МОЖЕМ </h2>
             <p>Различные приколюхи (* ^ ω ^):</p>
             <ul>
                 <li>Пофотаться на современный цифровик 2,5 мЕгаПиКсЕлЯ</li>
                 <img src="https://media.tenor.com/mG2DW2UImgAAAAAi/dive-in-honn.gif" alt="Горящий костер" width="100">
                 <li>Что-нибудь выкопать на заднем дворе, потому что у меня есть лопата</li>
-                <img src="https://i.imgur.com/fake-drinks.gif" alt="Лопата GIF (не нашел можете просто представить)" width="200">
+                <img src="https://i.imgur.com/fake-drinks.gif" alt="Лопата GIF" width="200">
                 <li>Пить воду, потому что я недавно поставил новый кран для питьевой воды!</li>
                 <img src="https://media.tenor.com/A8tcXGccRH0AAAAi/water-sink.gif" alt="Кран" width="200">
                 <li>Да и вообще все, что будет хотеться, роднульки, главное - оттопыриться по полной программе👍🏻</li>
             </ul>
         </div>
 
-        <!-- НАЧАЛО НОВОГО РАЗДЕЛА С ФОТОГРАФИЯМИ -->
+        <!-- ГАЛЕРЕЯ С ФОТОГРАФИЯМИ -->
         <div class="gallery">
             <h2>📸 ФОТОСЕССИЯ С ЦИФРОВИКА! 📸</h2>
             <marquee behavior="scroll" direction="left" scrollamount="5">::: Смотрите, какие кадры! Просто огонь! :::</marquee>
             <p>Как и обещал, выкладываю самые отпадные фото с нашей мега-тусы! Можно скачать на память!</p>
             
             <div class="photo-grid">
-                <!-- 21 плейсхолдер для фотографий. Замените текст внутри на <img src="ВАША_ССЫЛКА_НА_ФОТО.jpg" alt="Описание фото"> -->
-                <div class="photo-placeholder">Фото 1<br>[0.JPG]</div>
-                <div class="photo-placeholder">Фото 2<br>[1.JPG]</div>
-                <div class="photo-placeholder">Фото 3<br>[2.JPG]</div>
-                <div class="photo-placeholder">Фото 4<br>[3.JPG]</div>
-                <div class="photo-placeholder">Фото 5<br>[4.JPG]</div>
-                <div class="photo-placeholder">Фото 6<br>[5.JPG]</div>
-                <div class="photo-placeholder">Фото 7<br>[6.JPG]</div>
-                <div class="photo-placeholder">Фото 8<br>[7.JPG]</div>
-                <div class="photo-placeholder">Фото 9<br>[8.JPG]</div>
-                <div class="photo-placeholder">Фото 10<br>[9.JPG]</div>
-                <div class="photo-placeholder">Фото 11<br>[10.JPG]</div>
-                <div class="photo-placeholder">Фото 12<br>[11.JPG]</div>
-                <div class="photo-placeholder">Фото 13<br>[12.JPG]</div>
-                <div class="photo-placeholder">Фото 14<br>[13.JPG]</div>
-                <div class="photo-placeholder">Фото 15<br>[14.JPG]</div>
-                <div class="photo-placeholder">Фото 16<br>[15.JPG]</div>
-                <div class="photo-placeholder">Фото 17<br>[16.JPG]</div>
-                <div class="photo-placeholder">Фото 18<br>[17.JPG]</div>
-                <div class="photo-placeholder">Фото 19<br>[18.JPG]</div>
-                <div class="photo-placeholder">Фото 20<br>[19.JPG]</div>
-                <div class="photo-placeholder">Фото 21<br>[20.JPG]</div>
+                <!-- Фотографии с 0.JPG по 20.JPG -->
+                <img src="0.JPG" alt="Фото с дня рождения 1" class="gallery-img">
+                <img src="1.JPG" alt="Фото с дня рождения 2" class="gallery-img">
+                <img src="2.JPG" alt="Фото с дня рождения 3" class="gallery-img">
+                <img src="3.JPG" alt="Фото с дня рождения 4" class="gallery-img">
+                <img src="4.JPG" alt="Фото с дня рождения 5" class="gallery-img">
+                <img src="5.JPG" alt="Фото с дня рождения 6" class="gallery-img">
+                <img src="6.JPG" alt="Фото с дня рождения 7" class="gallery-img">
+                <img src="7.JPG" alt="Фото с дня рождения 8" class="gallery-img">
+                <img src="8.JPG" alt="Фото с дня рождения 9" class="gallery-img">
+                <img src="9.JPG" alt="Фото с дня рождения 10" class="gallery-img">
+                <img src="10.JPG" alt="Фото с дня рождения 11" class="gallery-img">
+                <img src="11.JPG" alt="Фото с дня рождения 12" class="gallery-img">
+                <img src="12.JPG" alt="Фото с дня рождения 13" class="gallery-img">
+                <img src="13.JPG" alt="Фото с дня рождения 14" class="gallery-img">
+                <img src="14.JPG" alt="Фото с дня рождения 15" class="gallery-img">
+                <img src="15.JPG" alt="Фото с дня рождения 16" class="gallery-img">
+                <img src="16.JPG" alt="Фото с дня рождения 17" class="gallery-img">
+                <img src="17.JPG" alt="Фото с дня рождения 18" class="gallery-img">
+                <img src="18.JPG" alt="Фото с дня рождения 19" class="gallery-img">
+                <img src="19.JPG" alt="Фото с дня рождения 20" class="gallery-img">
+                <img src="20.JPG" alt="Фото с дня рождения 21" class="gallery-img">
             </div>
             <p><b>P.S.:</b> Еще 100500 фото в процессе проявки! </p>
         </div>
-        <!-- КОНЕЦ НОВОГО РАЗДЕЛА С ФОТОГРАФИЯМИ -->
 
         <marquee behavior="alternate">!!! ОБЯЗАТЕЛЬНО БУДЕТ ЖАРКО И ВЕСЕЛО !!!</marquee>
 
@@ -228,10 +224,9 @@
         <div id="guestbook"></div>
     </div>
 
-        <br><br>
-<div style="background-color: lime; padding: 10px; border: 2px solid red; margin: 20px;">
-</div>
-    <!-- Обновленная бегущая строка -->
+    <br><br>
+    <div style="background-color: lime; padding: 10px; border: 2px solid red; margin: 20px;"></div>
+    
     <marquee behavior="scroll" direction="left" scrollamount="10">::: ДРЕСС-КОД ::: Самый понтовый прикид ::: ДЖИНСЫ-КЛЕТКА-КЕПКА ::: ДЕВЧОНКАМ ТОЖЕ ПРИКОДИТЬСЯ ::: БУДЕТ ФОТОСЕССИЯ НА ЦИФРОВИК :::</marquee>
 
 </body>
