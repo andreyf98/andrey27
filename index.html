@@ -72,73 +72,27 @@
         }
         .photo-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
             margin-top: 15px;
-        }
-        .gallery-item {
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        .gallery-item:hover {
-            transform: scale(1.05);
         }
         .gallery-img {
             width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border: 2px solid #000;
+            max-width: 500px;
+            height: auto;
+            border: 3px solid #FF00FF;
+            box-shadow: 5px 5px 0 #0000FF;
+            transition: transform 0.3s ease;
         }
-        /* Модальное окно для полноразмерного просмотра */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.9);
-            animation: fadeIn 0.3s;
+        .gallery-img:hover {
+            transform: scale(1.02);
+            border: 3px solid #00FF00;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .modal-content {
-            display: block;
-            margin: auto;
-            max-width: 90%;
-            max-height: 90%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            border: 5px solid #FF00FF;
-        }
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #fff;
-            font-size: 40px;
+        .photo-caption {
+            color: #000080;
             font-weight: bold;
-            cursor: pointer;
-            text-shadow: 2px 2px 4px #000;
-        }
-        .close:hover {
-            color: #FF0000;
-        }
-        .photo-number {
-            position: absolute;
-            bottom: 15px;
-            left: 15px;
-            color: white;
-            font-size: 18px;
-            text-shadow: 2px 2px 4px #000;
-            background: rgba(0,0,0,0.5);
-            padding: 5px 10px;
-            border-radius: 5px;
+            margin-top: 5px;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -230,80 +184,97 @@
         <!-- ГАЛЕРЕЯ С ФОТОГРАФИЯМИ -->
         <div class="gallery">
             <h2>📸 ФОТОСЕССИЯ С ЦИФРОВИКА! 📸</h2>
-            <marquee behavior="scroll" direction="left" scrollamount="5">::: Кликай на фото чтобы УВЕЛИЧИТЬ! :::</marquee>
-            <p>Как и обещал, выкладываю самые отпадные фото с нашей мега-тусы! ЖМИ на фото чтобы увидеть в полном размере!</p>
+            <marquee behavior="scroll" direction="left" scrollamount="5">::: СМОТРИТЕ КАК МЫ ОТОРВАЛИСЬ! :::</marquee>
+            <p>Как и обещал, выкладываю самые отпадные фото с нашей мега-тусы! Все фото в оригинальном качестве!</p>
             
             <div class="photo-grid">
                 <!-- Фотографии с 0.JPG по 20.JPG -->
-                <div class="gallery-item" onclick="openModal(0)">
+                <div>
                     <img src="0.JPG" alt="Фото с дня рождения 1" class="gallery-img">
+                    <div class="photo-caption">Фото 1 - Настроение поднимаем!</div>
                 </div>
-                <div class="gallery-item" onclick="openModal(1)">
+                <div>
                     <img src="1.JPG" alt="Фото с дня рождения 2" class="gallery-img">
+                    <div class="photo-caption">Фото 2 - Шашлык маринуем</div>
                 </div>
-                <div class="gallery-item" onclick="openModal(2)">
+                <div>
                     <img src="2.JPG" alt="Фото с дня рождения 3" class="gallery-img">
+                    <div class="photo-caption">Фото 3 - Первые гости</div>
                 </div>
-                <div class="gallery-item" onclick="openModal(3)">
+                <div>
                     <img src="3.JPG" alt="Фото с дня рождения 4" class="gallery-img">
+                    <div class="photo-caption">Фото 4 - Музыка включается</div>
                 </div>
-                <div class="gallery-item" onclick="openModal(4)">
+                <div>
                     <img src="4.JPG" alt="Фото с дня рождения 5" class="gallery-img">
+                    <div class="photo-caption">Фото 5 - Закуска готова</div>
                 </div>
-                <div class="gallery-item" onclick="openModal(5)">
+                <div>
                     <img src="5.JPG" alt="Фото с дня рождения 6" class="gallery-img">
+                    <div class="photo-caption">Фото 6 - Тосты начинаются</div>
                 </div>
-                <div class="gallery-item" onclick="openModal(6)">
+                <div>
                     <img src="6.JPG" alt="Фото с дня рождения 7" class="gallery-img">
+                    <div class="photo-caption">Фото 7 - Все в сборе</div>
                 </div>
-                <div class="gallery-item" onclick="openModal(7)">
+                <div>
                     <img src="7.JPG" alt="Фото с дня рождения 8" class="gallery-img">
+                    <div class="photo-caption">Фото 8 - Улыбки до ушей</div>
                 </div>
-                <div class="gallery-item" onclick="openModal(8)">
+                <div>
                     <img src="8.JPG" alt="Фото с дня рождения 9" class="gallery-img">
+                    <div class="photo-caption">Фото 9 - Танцы под винил</div>
                 </div>
-                <div class="gallery-item" onclick="openModal(9)">
+                <div>
                     <img src="9.JPG" alt="Фото с дня рождения 10" class="gallery-img">
+                    <div class="photo-caption">Фото 10 - Банный чан ждет</div>
                 </div>
-                <div class="gallery-item" onclick="openModal(10)">
+                <div>
                     <img src="10.JPG" alt="Фото с дня рождения 11" class="gallery-img">
+                    <div class="photo-caption">Фото 11 - Разговор по душам</div>
                 </div>
-                <div class="gallery-item" onclick="openModal(12)">
+                <div>
+                    <img src="11.JPG" alt="Фото с дня рождения 12" class="gallery-img">
+                    <div class="photo-caption">Фото 12 - Вечерние посиделки</div>
+                </div>
+                <div>
                     <img src="12.JPG" alt="Фото с дня рождения 13" class="gallery-img">
+                    <div class="photo-caption">Фото 13 - Костер разожгли</div>
                 </div>
-                <div class="gallery-item" onclick="openModal(13)">
+                <div>
                     <img src="13.JPG" alt="Фото с дня рождения 14" class="gallery-img">
+                    <div class="photo-caption">Фото 14 - Атмосфера уюта</div>
                 </div>
-                <div class="gallery-item" onclick="openModal(14)">
+                <div>
                     <img src="14.JPG" alt="Фото с дня рождения 15" class="gallery-img">
+                    <div class="photo-caption">Фото 15 - Шутки-прибаутки</div>
                 </div>
-                <div class="gallery-item" onclick="openModal(15)">
+                <div>
                     <img src="15.JPG" alt="Фото с дня рождения 16" class="gallery-img">
+                    <div class="photo-caption">Фото 16 - Фото на память</div>
                 </div>
-                <div class="gallery-item" onclick="openModal(16)">
+                <div>
                     <img src="16.JPG" alt="Фото с дня рождения 17" class="gallery-img">
+                    <div class="photo-caption">Фото 17 - Удачный кадр</div>
                 </div>
-                <div class="gallery-item" onclick="openModal(17)">
+                <div>
                     <img src="17.JPG" alt="Фото с дня рождения 18" class="gallery-img">
+                    <div class="photo-caption">Фото 18 - Все довольны</div>
                 </div>
-                <div class="gallery-item" onclick="openModal(18)">
+                <div>
                     <img src="18.JPG" alt="Фото с дня рождения 19" class="gallery-img">
+                    <div class="photo-caption">Фото 19 - Закат встречаем</div>
                 </div>
-                <div class="gallery-item" onclick="openModal(19)">
+                <div>
                     <img src="19.JPG" alt="Фото с дня рождения 20" class="gallery-img">
+                    <div class="photo-caption">Фото 20 - Прощальные объятия</div>
                 </div>
-                <div class="gallery-item" onclick="openModal(20)">
+                <div>
                     <img src="20.JPG" alt="Фото с дня рождения 21" class="gallery-img">
+                    <div class="photo-caption">Фото 21 - До следующего года!</div>
                 </div>
             </div>
-            <p><b>P.S.:</b> Еще 100500 фото в процессе проявки!</p>
-        </div>
-
-        <!-- Модальное окно для полноразмерного просмотра -->
-        <div id="myModal" class="modal">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <img class="modal-content" id="modalImg">
-            <div class="photo-number" id="photoNumber"></div>
+            <p><b>P.S.:</b> Еще 100500 фото в процессе проявки! Следите за обновлениями!</p>
         </div>
 
         <marquee behavior="alternate">!!! ОБЯЗАТЕЛЬНО БУДЕТ ЖАРКО И ВЕСЕЛО !!!</marquee>
@@ -327,38 +298,6 @@
     <div style="background-color: lime; padding: 10px; border: 2px solid red; margin: 20px;"></div>
     
     <marquee behavior="scroll" direction="left" scrollamount="10">::: ДРЕСС-КОД ::: Самый понтовый прикид ::: ДЖИНСЫ-КЛЕТКА-КЕПКА ::: ДЕВЧОНКАМ ТОЖЕ ПРИКОДИТЬСЯ ::: БУДЕТ ФОТОСЕССИЯ НА ЦИФРОВИК :::</marquee>
-
-    <script>
-        // JavaScript для модального окна
-        function openModal(index) {
-            const modal = document.getElementById('myModal');
-            const modalImg = document.getElementById('modalImg');
-            const photoNumber = document.getElementById('photoNumber');
-            
-            modal.style.display = 'block';
-            modalImg.src = index + '.JPG';
-            photoNumber.textContent = 'Фото ' + (index + 1) + ' из 21';
-        }
-
-        function closeModal() {
-            document.getElementById('myModal').style.display = 'none';
-        }
-
-        // Закрытие модального окна при клике вне изображения
-        window.onclick = function(event) {
-            const modal = document.getElementById('myModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-
-        // Закрытие модального окна по клавише ESC
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeModal();
-            }
-        });
-    </script>
 
 </body>
 </html>
